@@ -1,7 +1,9 @@
 import EmployeeList from "./EmployeeList";
-
+import { useState } from "react";
+import avatar from "../assets/avatar.png";
+import SelectedEmployeeSection from "./SelectedEmployeeSection";
 function Main() {
-  const employeeDataBase = [
+  const [employees] = useState([
     {
       id: 1,
       lastName: "Garcia",
@@ -720,13 +722,22 @@ function Main() {
       grossSemiMonthlyRate: 26335,
       hourlyRate: 313.5119048,
     },
-  ];
+  ]);
+  const [selectedEmployee, setSelectedEmployee] = useState({});
+
+  const handleEmployeeClick = (employee) => {
+    setSelectedEmployee(employee);
+    console.log(employee);
+  };
   return (
     <div className="bg-wh h-5/6 pt-20">
       <div className=" flex gap-3 px-5 py-2">
-        <EmployeeList />
+        <EmployeeList
+          employees={employees}
+          onEmployeeClick={handleEmployeeClick}
+        />
         <div className="w-1/2 h-screen rounded-lg  mt-3 flex flex-col gap-3">
-          <div className="h-2/3 bg-red-500 rounded-lg">top</div>
+          <SelectedEmployeeSection selectedEmployee={selectedEmployee} />
           <div className="h-1/3 bg-red-500 rounded-lg">bottom</div>
         </div>
       </div>
