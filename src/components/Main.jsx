@@ -2,6 +2,7 @@ import EmployeeList from "./EmployeeList";
 import { useState } from "react";
 import avatar from "../assets/avatar.png";
 import SelectedEmployeeSection from "./SelectedEmployeeSection";
+import SalaryComputationSection from "./SalaryComputationSection";
 function Main() {
   const [employees] = useState([
     {
@@ -729,6 +730,33 @@ function Main() {
     setSelectedEmployee(employee);
     console.log(employee);
   };
+
+  const automatedSalaryComputation = (
+    hours,
+    riceSubsidy,
+    phoneAllowance,
+    clothingAllowance,
+    hourlyRate
+  ) => {
+    let grossSalary = 0
+    const netSalary =
+      hours * hourlyRate + riceSubsidy + phoneAllowance + clothingAllowance;
+
+      // below is the deduction logic for sss
+      switch (netSalary) {
+        case netSalary <= 3250:
+          grossSalary = netSalary - 135;
+        break
+      }
+      // below is the deduction logic for philhealth
+      // below is the deduction logic for tin
+      // below is the deduction logic for pagibig
+
+    return netSalary;
+    // const grossSalary = netSalary;
+  };
+    
+  };
   return (
     <div className="bg-wh h-5/6 pt-20">
       <div className=" flex gap-3 px-5 py-2">
@@ -738,7 +766,7 @@ function Main() {
         />
         <div className="w-1/2 h-screen rounded-lg  mt-3 flex flex-col gap-3">
           <SelectedEmployeeSection selectedEmployee={selectedEmployee} />
-          <div className="h-1/3 bg-red-500 rounded-lg">bottom</div>
+          <SalaryComputationSection selectedEmployee={selectedEmployee} />
         </div>
       </div>
     </div>

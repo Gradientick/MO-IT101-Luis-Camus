@@ -16,58 +16,32 @@ function SelectedEmployeeSection({ selectedEmployee }) {
       <div className="p-3 flex justify-between">
         <div className="w-1/2">
           <p>
-            <span className="font-semibold">Phone Number:</span>{" "}
+            <span className="font-semibold">Phone Number:</span>
             {selectedEmployee.phoneNumber}
           </p>
           <p>
-            <span className="font-semibold">SSS Number:</span>{" "}
+            <span className="font-semibold">SSS Number:</span>
             {selectedEmployee.sss}
           </p>
           <p>
-            <span className="font-semibold">Philhealth Number:</span>{" "}
+            <span className="font-semibold">Philhealth Number:</span>
             {selectedEmployee.philhealth}
           </p>
           <p>
-            <span className="font-semibold">TIN Number:</span>{" "}
+            <span className="font-semibold">TIN Number:</span>
             {selectedEmployee.tin}
           </p>
           <p>
-            <span className="font-semibold">Pagibig Number:</span>{" "}
+            <span className="font-semibold">Pagibig Number:</span>
             {selectedEmployee.pagibig}
           </p>
           <p>
-            <span className="font-semibold">Status:</span>{" "}
+            <span className="font-semibold">Status:</span>
             {selectedEmployee.status}
           </p>
-        </div>
-        <div className="w-1/2">
           <p>
-            <span className="font-semibold">Immediate Supervisor:</span>{" "}
+            <span className="font-semibold">Immediate Supervisor:</span>
             {selectedEmployee.immediateSupervisor}
-          </p>
-          <p>
-            <span className="font-semibold">Basic Salary:</span>{" "}
-            {selectedEmployee.basicSalary}
-          </p>
-          <p>
-            <span className="font-semibold">Rice Subsidy:</span>{" "}
-            {selectedEmployee.riceSubsidy}
-          </p>
-          <p>
-            <span className="font-semibold">Phone Allowance:</span>{" "}
-            {selectedEmployee.phoneAllowance}
-          </p>
-          <p>
-            <span className="font-semibold">Clothing Allowance:</span>{" "}
-            {selectedEmployee.clothingAllowance}
-          </p>
-          <p>
-            <span className="font-semibold">Gross Semi-Monthly Rate:</span>{" "}
-            {selectedEmployee.grossSemiMonthlyRate}
-          </p>
-          <p>
-            <span className="font-semibold">Hourly Rate:</span>{" "}
-            {selectedEmployee.hourlyRate}
           </p>
         </div>
       </div>
