@@ -738,25 +738,156 @@ function Main() {
     clothingAllowance,
     hourlyRate
   ) => {
-    let grossSalary = 0
-    const netSalary =
+    let netSalary = 0;
+    const grossSalary =
       hours * hourlyRate + riceSubsidy + phoneAllowance + clothingAllowance;
 
-      // below is the deduction logic for sss
-      switch (netSalary) {
-        case netSalary <= 3250:
-          grossSalary = netSalary - 135;
-        break
-      }
-      // below is the deduction logic for philhealth
-      // below is the deduction logic for tin
-      // below is the deduction logic for pagibig
+    // below is the deduction logic for sss deudctions
+    switch (grossSalary) {
+      case grossSalary <= 3250:
+        netSalary = grossSalary - 135;
+        break;
+      case grossSalary <= 3750:
+        netSalary = grossSalary - 157;
+        break;
+      case grossSalary <= 4250:
+        netSalary = grossSalary - 180;
+        break;
+      case grossSalary <= 4750:
+        netSalary = grossSalary - 202.5;
+        break;
+      case grossSalary <= 5250:
+        netSalary = grossSalary - 225;
+        break;
+      case grossSalary <= 5750:
+        netSalary = grossSalary - 247.5;
+        break;
+      case grossSalary <= 6250:
+        netSalary = grossSalary - 270;
+        break;
+      case grossSalary <= 6750:
+        netSalary = grossSalary - 292.5;
+        break;
+      case grossSalary <= 7250:
+        netSalary = grossSalary - 315;
+        break;
+      case grossSalary <= 7750:
+        netSalary = grossSalary - 337.5;
+        break;
+      case grossSalary <= 8250:
+        netSalary = grossSalary - 360;
+        break;
+      case grossSalary <= 8750:
+        netSalary = grossSalary - 382.5;
+        break;
+      case grossSalary <= 9250:
+        netSalary = grossSalary - 405;
+        break;
+      case grossSalary <= 9750:
+        netSalary = grossSalary - 427.5;
+        break;
+      case grossSalary <= 10250:
+        netSalary = grossSalary - 450;
+        break;
+      case grossSalary <= 10750:
+        netSalary = grossSalary - 472.5;
+        break;
+      case grossSalary <= 11250:
+        netSalary = grossSalary - 495;
+        break;
+      case grossSalary <= 11750:
+        netSalary = grossSalary - 517.5;
+        break;
+      case grossSalary <= 12250:
+        netSalary = grossSalary - 540;
+        break;
+      case grossSalary <= 12750:
+        netSalary = grossSalary - 562.5;
+        break;
+      case grossSalary <= 13250:
+        netSalary = grossSalary - 585;
+        break;
+      case grossSalary <= 13750:
+        netSalary = grossSalary - 607.5;
+        break;
+      case grossSalary <= 14250:
+        netSalary = grossSalary - 630;
+        break;
+      case grossSalary <= 14750:
+        netSalary = grossSalary - 652.5;
+        break;
+      case grossSalary <= 15250:
+        netSalary = grossSalary - 675;
+        break;
+      case grossSalary <= 15750:
+        netSalary = grossSalary - 697.5;
+        break;
+      case grossSalary <= 16250:
+        netSalary = grossSalary - 720;
+        break;
+      case grossSalary <= 16750:
+        netSalary = grossSalary - 742.5;
+        break;
+      case grossSalary <= 17250:
+        netSalary = grossSalary - 765;
+        break;
+      case grossSalary <= 17750:
+        netSalary = grossSalary - 787.5;
+        break;
+      case grossSalary <= 18250:
+        netSalary = grossSalary - 810;
+        break;
+      case grossSalary <= 18750:
+        netSalary = grossSalary - 832.5;
+        break;
+      case grossSalary <= 19250:
+        netSalary = grossSalary - 855;
+        break;
+      case grossSalary <= 19750:
+        netSalary = grossSalary - 877.5;
+        break;
+      case grossSalary <= 20250:
+        netSalary = grossSalary - 922.5;
+        break;
+      case grossSalary <= 20750:
+        netSalary = grossSalary - 945;
+        break;
+      case grossSalary <= 21250:
+        netSalary = grossSalary - 967.5;
+        break;
+      case grossSalary <= 21750:
+        netSalary = grossSalary - 990;
+        break;
+      case grossSalary <= 22250:
+        netSalary = grossSalary - 1012.5;
+        break;
+      case grossSalary <= 22750:
+        netSalary = grossSalary - 1035;
+        break;
+      case grossSalary <= 23250:
+        netSalary = grossSalary - 1057.5;
+        break;
+      case grossSalary <= 23750:
+        netSalary = grossSalary - 1080;
+        break;
+      case grossSalary <= 24250:
+        netSalary = grossSalary - 1102.5;
+        break;
+      case grossSalary < 24750:
+        netSalary = grossSalary - 1102.5;
+        break;
+      case grossSalary >= 24750:
+        netSalary = grossSalary - 1125;
+        break;
+    }
+    // below is the deduction logic for philhealth deudctions
+    // below is the deduction logic for tin deudctions
+    // below is the deduction logic for pagibig deudctions
 
     return netSalary;
     // const grossSalary = netSalary;
   };
-    
-  };
+
   return (
     <div className="bg-wh h-5/6 pt-20">
       <div className=" flex gap-3 px-5 py-2">
