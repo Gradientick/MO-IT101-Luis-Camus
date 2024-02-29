@@ -725,9 +725,13 @@ function Main() {
     },
   ]);
   const [selectedEmployee, setSelectedEmployee] = useState({});
-
+  const [storedGrossSalary, setStoredGrossSalary] = useState(0);
+  const [storedNetSalary, setStoredNetSalary] = useState(0);
+  const [inputValue, setInputValue] = useState();
   const handleEmployeeClick = (employee) => {
     setSelectedEmployee(employee);
+    setStoredGrossSalary(0);
+    setStoredNetSalary(0);
     console.log(employee);
   };
 
@@ -941,6 +945,10 @@ function Main() {
     let totalDeductionsMinusGross = grossSalary - totalDeductionsBeforeTax;
 
     let netSalary = grossSalary - totalDeductionsBeforeTax;
+    setStoredGrossSalary(grossSalary);
+    console.log("gross salary state: " + storedGrossSalary);
+    setStoredNetSalary(netSalary);
+    console.log("net salary state: " + storedNetSalary);
     console.log(`Gross Salary: ${grossSalary}`);
     console.log(`SSS Deduction: ${sssDeductions(grossSalary)}`);
     console.log(`philhealth Deduction: ${philhealthDeductions(grossSalary)}`);
@@ -972,7 +980,14 @@ function Main() {
         />
         <div className="w-1/2 h-screen rounded-lg  mt-3 flex flex-col gap-3">
           <SelectedEmployeeSection selectedEmployee={selectedEmployee} />
-          <SalaryComputationSection selectedEmployee={selectedEmployee} />
+          <SalaryComputationSection
+            selectedEmployee={selectedEmployee}
+            calculateSalary={automatedSalaryComputation}
+            storedGrossSalary={storedGrossSalary}
+            storedNetSalary={storedNetSalary}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+          />
         </div>
       </div>
     </div>

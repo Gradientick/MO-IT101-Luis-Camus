@@ -1,6 +1,32 @@
-import React from "react";
+function SalaryComputationSection({
+  selectedEmployee,
+  calculateSalary,
+  storedGrossSalary,
+  storedNetSalary,
+  inputValue,
+  setInputValue,
+}) {
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+    console.log(inputValue);
+  };
 
-function SalaryComputationSection({ selectedEmployee }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("button clicked");
+    console.log(`input Value: ${inputValue}`);
+    console.log(`riceSubsidy: ${selectedEmployee.riceSubsidy}`);
+    console.log(`phoneAllowance: ${selectedEmployee.phoneAllowance}`);
+    console.log(`hourly rate: ${selectedEmployee.hourlyRate}`);
+    calculateSalary(
+      inputValue,
+      selectedEmployee.riceSubsidy,
+      selectedEmployee.phoneAllowance,
+      selectedEmployee.clothingAllowance,
+      selectedEmployee.hourlyRate
+    );
+    setInputValue("");
+  };
   return (
     <div className="h-1/3 bg-br rounded-lg p-2">
       <h1 className=" text-2xl font-semibold text-center">
@@ -34,13 +60,21 @@ function SalaryComputationSection({ selectedEmployee }) {
           </p>
         </div>
         <div className="w-1/2">
-          <form>
-            <label>Hours Worked: </label>
-            <input type="number" />
+          <form className="flex-col" onSubmit={handleSubmit}>
+            <div className="flex">
+              <label>Hours Worked: </label>
+              <input
+                type="number"
+                value={inputValue}
+                onChange={handleChange}
+                placeholder="input number of hours"
+              />
+            </div>
+            <button>Compute Salary</button>
           </form>
           <div>
-            <p>Gross Salary:</p>
-            <p>Net Salary:</p>
+            <p>Gross Salary: {storedGrossSalary}</p>
+            <p>Net Salary: {storedNetSalary}</p>
           </div>
         </div>
       </div>
