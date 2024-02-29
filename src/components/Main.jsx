@@ -4,6 +4,7 @@ import avatar from "../assets/avatar.png";
 import SelectedEmployeeSection from "./SelectedEmployeeSection";
 import SalaryComputationSection from "./SalaryComputationSection";
 function Main() {
+  // state that stores motorph employeeDB
   const [employees] = useState([
     {
       id: 1,
@@ -726,8 +727,15 @@ function Main() {
   ]);
   const [selectedEmployee, setSelectedEmployee] = useState({});
   const [storedGrossSalary, setStoredGrossSalary] = useState(0);
+
+  // states for handling Salary Computation Data
   const [storedNetSalary, setStoredNetSalary] = useState(0);
   const [inputValue, setInputValue] = useState();
+  const [totalSssDeductions, setTotalSssDeduction] = useState(0);
+  const [totalPhilhealthDeductions, setTotalPhilhealthDeductions] = useState(0);
+  const [totalPagibigDeductions, setTotalPagibigDeductions] = useState(0);
+  const [totalTaxDeductions, setTotalTaxDeductions] = useState(0);
+
   const handleEmployeeClick = (employee) => {
     setSelectedEmployee(employee);
     setStoredGrossSalary(0);
